@@ -48,8 +48,8 @@ public class Main extends JFrame{
 	public static final int buttonBreite = 190;
 	public static final int buttonHöhe = 85;
 	public boolean timerRunning = true;
-	Font font = new Font("Public Pixel", Font.PLAIN , 30);
-	Font publicPixel = new Font("fonts\\public_pixel\\fonts\\PublicPixel.ttf", Font.PLAIN, 30);
+	//Font font = new Font("Public Pixel", Font.PLAIN , 30);
+	//Font publicPixel = new Font("fonts\\public_pixel\\fonts\\PublicPixel.ttf", Font.PLAIN, 30);
 
 	public Main()
 	{
@@ -60,17 +60,24 @@ public class Main extends JFrame{
 			setLocationRelativeTo(null);
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+    		//exitButton
+			var exitbutton = new JButton();
+			exitbutton.setVisible(true);
+			exitbutton.setSize(50, 50);
+			exitbutton.setLocation(50, 50);
+
+
 			//Background
-			JLabel myLabel;
-			java.net.URL backgroundURL = getClass().getResource("pictures\\backgroundNew.png");
-			ImageIcon background = new ImageIcon(backgroundURL);
-			myLabel = new JLabel(background);
-			myLabel.setSize(1280, 720);
+			//JLabel myLabel;
+			//java.net.URL backgroundURL = getClass().getResource("pictures\\backgroundNew.png");
+			//ImageIcon background = new ImageIcon(backgroundURL);
+			//myLabel = new JLabel(background);
+			//myLabel.setSize(1280, 720);
 			
 			//ICON
-			java.net.URL taskbarIconURL = Main.class.getResource("pictures\\taskbarIcon.png");
-			ImageIcon taskbarIcon = new ImageIcon(taskbarIconURL);
-			setIconImage(taskbarIcon.getImage());
+			//java.net.URL taskbarIconURL = Main.class.getResource("pictures\\taskbarIcon.png");
+			//ImageIcon taskbarIcon = new ImageIcon(taskbarIconURL);
+			//setIconImage(taskbarIcon.getImage());
 			
 
 			//Layout
