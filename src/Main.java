@@ -1,10 +1,12 @@
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
@@ -38,7 +40,6 @@ public class Main extends JFrame{
 			
 			@Override
 			public void run() {
-				System.out.println("Hello World");
 				Main m = new Main();
 				m.setVisible(true);
 			}
@@ -63,8 +64,17 @@ public class Main extends JFrame{
     		//exitButton
 			var exitbutton = new JButton();
 			exitbutton.setVisible(true);
-			exitbutton.setSize(50, 50);
-			exitbutton.setLocation(50, 50);
+			exitbutton.setLocation(50,50);
+			//exitbutton.setSize(50,50);
+			exitbutton.setText("Exit");
+			exitbutton.addActionListener(
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						System.exit(0);
+				};
+	});
+
 
 
 			//Background
@@ -78,11 +88,23 @@ public class Main extends JFrame{
 			//java.net.URL taskbarIconURL = Main.class.getResource("pictures\\taskbarIcon.png");
 			//ImageIcon taskbarIcon = new ImageIcon(taskbarIconURL);
 			//setIconImage(taskbarIcon.getImage());
-			
-
+		
 			//Layout
 			Container pane = getContentPane();
-			GroupLayout gl = new GroupLayout(pane);
+			Container paneU = new Container();
+			Container paneC = new Container();
+			Container paneD = new Container();
+			//GroupLayout gl = new GroupLayout(pane);
+			pane.setLayout(new BorderLayout());
+			pane.add(paneU, BorderLayout.NORTH);
+			pane.add(paneC, BorderLayout.CENTER);
+			pane.add(paneD, BorderLayout.SOUTH);
+			paneU.setLayout(new BorderLayout());
+			paneC.setLayout(new BorderLayout());
+			paneD.setLayout(new BorderLayout());
+			paneU.setPreferredSize(getPreferredSize());
+			paneD.add(exitbutton, BorderLayout.WEST);
+			
 
 			
 			/*gl.setVerticalGroup(gl.createSequentialGroup().addComponent(button));
@@ -92,3 +114,4 @@ public class Main extends JFrame{
 			
 		}
     }
+
