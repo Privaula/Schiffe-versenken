@@ -2,7 +2,9 @@
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.EventQueue;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
@@ -14,6 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.BufferUnderflowException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
@@ -62,12 +65,12 @@ public class Main extends JFrame{
 			setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     		//exitButton
-			var exitbutton = new JButton();
-			exitbutton.setVisible(true);
-			exitbutton.setLocation(50,50);
-			//exitbutton.setSize(50,50);
-			exitbutton.setText("Exit");
-			exitbutton.addActionListener(
+			var exitButton = new JButton();
+			exitButton.setVisible(true);
+			exitButton.setSize(50,50);
+			exitButton.setText("Exit");
+			exitButton.setPreferredSize(new Dimension(100, 100));
+			exitButton.addActionListener(
 				new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -75,6 +78,28 @@ public class Main extends JFrame{
 				};
 	});
 
+			
+			var startButton1 = new JButton();
+			var startButton2 = new JButton();
+			var startButton3 = new JButton();
+			var startButton4 = new JButton();
+			
+			
+			
+			
+			//startButton
+			var startButton = new JButton();
+			startButton.setVisible(true);
+			startButton.setSize(50,50);
+			startButton.setText("Start");
+			startButton.addActionListener(
+					
+				new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						System.exit(0);
+				};
+	});
 
 
 			//Background
@@ -91,20 +116,28 @@ public class Main extends JFrame{
 		
 			//Layout
 			Container pane = getContentPane();
-			Container paneU = new Container();
-			Container paneC = new Container();
-			Container paneD = new Container();
+			Container paneUp = new Container();
+			Container paneCenter = new Container();
+			Container paneDown = new Container();
 			//GroupLayout gl = new GroupLayout(pane);
 			pane.setLayout(new BorderLayout());
-			pane.add(paneU, BorderLayout.NORTH);
-			pane.add(paneC, BorderLayout.CENTER);
-			pane.add(paneD, BorderLayout.SOUTH);
-			paneU.setLayout(new BorderLayout());
-			paneC.setLayout(new BorderLayout());
-			paneD.setLayout(new BorderLayout());
-			paneU.setPreferredSize(getPreferredSize());
-			paneD.add(exitbutton, BorderLayout.WEST);
 			
+			
+			
+			pane.add(paneUp, BorderLayout.NORTH);
+			pane.add(paneCenter);
+			pane.add(paneDown, BorderLayout.SOUTH);
+			
+			
+			
+			paneUp.setLayout(new BorderLayout(10, 10));
+			paneUp.setPreferredSize(new Dimension(300, 300));
+			paneCenter.setLayout(new FlowLayout(FlowLayout.CENTER));
+			paneDown.setLayout(new BorderLayout(10, 10));
+			
+			
+			paneDown.add(exitButton, BorderLayout.WEST);
+			paneCenter.add(startButton, BorderLayout.CENTER);
 
 			
 			/*gl.setVerticalGroup(gl.createSequentialGroup().addComponent(button));
